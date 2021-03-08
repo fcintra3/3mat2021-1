@@ -8,17 +8,19 @@ function buscaBinaria(vetor, fnComp) {
     while (fim >= ini) {
         meio = Math.floor((fim + ini) / 2) // Math.floor() arredonda para baixo
         //console.log({ini, fim, meio, valorBusca})
-        if (fnComp(vetor[meio]) === 0) {
-            comps++
-            return meio // Achou
-        }
-        else if (fnComp(vetor[meio]) < 0) {
-            comps += 2
-            fim = meio - 1
-        }
-        else {
-            comps += 2
-            ini = meio + 1
+        switch(fnComp(vetor[meio])) {
+            case 0:         // Igualdade
+                comps++
+                return meio // Achou
+                            
+            case -1:
+                comps += 2
+                fim = meio - 1
+                break
+
+            default:
+                comps += 2
+                ini = meio + 1
         }
     }
     return -1   // Valor de busca não existe no vetor
@@ -39,7 +41,7 @@ import { objNomes } from './includes/vetor-obj-nomes.mjs'
 console.time('Buscando ZILMAR')
 console.log(buscaBinaria(objNomes, obj => {
     const valorBusca = 'ZILMAR'
-    if(objNomes.first_name === valorBusca) return 0
+    if(obj.first_name === valorBusca) return 0
     else if(valorBusca < obj.first_name) return -1
     else return 1
 }), {comps})
@@ -57,7 +59,7 @@ console.timeEnd('Buscando KATIUSCIA')
 console.time('Buscando nome ABRAAO')
 let posEncontrado = buscaBinaria(objNomes, obj => {
     const valorBusca = 'ABRAAO'
-    if(objNomes.first_name === valorBusca) return 0
+    if(obj.first_name === valorBusca) return 0
     else if(valorBusca < obj.first_name) return -1
     else return 1
 })
@@ -65,6 +67,9 @@ console.timeEnd('Buscando nome ABRAAO')
 
 console.log(objNomes[posEncontrado], {comps})
 
+// Como o conjunto de dados está ordenado por first_name,
+// a busca binária por group_name falha e retorna -1, como
+// se a informação correspondente não existisse no conjunto de dados
 console.time('Buscando group_name MARIA')
 console.log(buscaBinaria(objNomes, obj => {
     const valorBusca = 'MARIA'
