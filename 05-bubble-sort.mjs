@@ -51,7 +51,7 @@ console.log({totTrocas, comps, pass})
 
 import { nomes } from './includes/100-mil-nomes.mjs'
 
-console.log('Antes:', nomes)
+//console.log('Antes:', nomes)
 console.time('Ordenando nomes...')
 bubbleSort(nomes)
 console.timeEnd('Ordenando nomes...')
