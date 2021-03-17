@@ -55,5 +55,6 @@ import { nomes } from './includes/100-mil-nomes.mjs'
 console.time('Ordenando nomes...')
 bubbleSort(nomes)
 console.timeEnd('Ordenando nomes...')
-console.log({totTrocas, comps, pass})
+let memoria = process.memoryUsage().heapUsed / 1024 / 1024
+console.log({totTrocas, comps, pass, memoria})
 console.log('Depois:', nomes)
