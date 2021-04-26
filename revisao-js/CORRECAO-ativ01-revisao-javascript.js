@@ -141,6 +141,7 @@ for(let i = 0; i < estadosNe.length; i++) {
 
 */
 
+console.log('EXERCÍCIO 4')
 const listaEstado = estado => {
    for(let prop in estado) {
       console.log(`${prop} => ${estado[prop]}`)
