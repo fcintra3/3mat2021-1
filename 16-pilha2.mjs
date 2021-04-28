@@ -11,7 +11,7 @@ for(let i = 0; i < texto.length; i++) {
     pilha.push(texto.charAt(i))
 }
 
-console.log(pilha.print())
+//console.log(pilha.print())
 
 let textoRev = ''
 
