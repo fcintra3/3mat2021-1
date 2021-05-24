@@ -56,3 +56,8 @@ removed = lista.remove(2)   // Posição intermediária
 console.log({removed})
 console.log(lista.print())
 console.log(lista.printReverse())
+
+let pos30 = lista.indexOf(30)
+let pos45 = lista.indexOf(45)
+let pos13 = lista.indexOf(13)
+console.log({pos30, pos45, pos13})
