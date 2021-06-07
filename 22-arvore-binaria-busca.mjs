@@ -34,3 +34,38 @@ let existe22 = arvore.search(22)
 let existe31 = arvore.search(31)
 let existe62 = arvore.search(62)
 console.log({existe16, existe22, existe31, existe62})
+
+console.log('-----------------------------------------------')
+percurso = []
+arvore.inOrderTraversal(n => percurso.push(n))
+console.log(percurso)
+
+// Exclusão de nodo folha (grau 0)
+arvore.remove(26)
+percurso = []
+arvore.inOrderTraversal(n => percurso.push(n))
+console.log('Sem o 26:', percurso)
+
+// Exclusão de nodo de grau 1 com descendente à esquerda
+arvore.remove(44)
+percurso = []
+arvore.inOrderTraversal(n => percurso.push(n))
+console.log('Sem o 44:', percurso)
+
+// Exclusão de nodo de grau 1 com descendente à direita
+arvore.remove(5)
+percurso = []
+arvore.inOrderTraversal(n => percurso.push(n))
+console.log('Sem o 5:', percurso)
+
+// Exclusão de nodo grau 2
+arvore.remove(51)
+percurso = []
+arvore.inOrderTraversal(n => percurso.push(n))
+console.log('Sem o 51:', percurso)
+
+// Exclusão do nodo raiz
+arvore.remove(35)
+percurso = []
+arvore.inOrderTraversal(n => percurso.push(n))
+console.log('Sem o 35:', percurso)
